@@ -1,0 +1,41 @@
+@import 'reset';
+@import 'mixins';
+@import 'fonts';
+
+$font-family-default: Montserrat;
+$font-size-default: 24px;
+$font-weight-default: 400;
+
+$max-width: 1280px;
+$md1: $max-width;
+$md2: 992px;
+$md3: 768px;
+$md4: 576px;
+
+body {
+    font-family: $font-family-default;
+    font-weight: 400;
+}
+
+.section-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: $max-width;
+    @media (max-width: $md1) {
+        max-width: 970px;
+    }
+    @media (max-width: $md2) {
+        max-width: 750px;
+    }
+    @media (max-width: $md3) {
+        max-width: none;
+        padding: 0 10px;
+    }
+}
+
+@import 'header';
+@import 'cat-1';
+@import 'cat-2';
+@import 'button';
+@import 'bottom';
+@import 'back';

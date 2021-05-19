@@ -1,0 +1,44 @@
+.button__content {
+    background: #E5E5E5;
+    padding-top: 68px;
+    @media (max-width: $md2) {
+        padding-top: 34px;
+    }
+}
+.button__bottom{
+    padding-bottom: 82px;
+    @media (max-width: $md2) {
+        padding-bottom:  41px;
+    }
+}
+.button__wrap {
+    margin-left: 500px;
+    @media (max-width: $md1) {
+        margin-left:  320px;
+    }
+    @media (max-width: $md2) {
+        margin-left:  20px;
+    }
+}
+.button__title {
+    background: #fff;
+    max-width: 380px;
+    padding: 24px 129px;
+    border-radius: 15px;
+    border: 1px solid rgb(209, 207, 207);
+    @media (max-width: $md4) {
+        max-width: 250px;
+        padding: 24px 60px;
+    }
+    & a{
+        text-decoration: none; 
+    }
+}
+a:hover{
+    color: #6EBBD3;
+} 
+.button__text {
+    white-space: nowrap;
+    margin-left: 0px;
+    color: black;
+}

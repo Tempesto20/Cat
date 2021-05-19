@@ -1,0 +1,16 @@
+.finish {
+    background: #62D0DF;
+
+}
+.copyright {
+    font-size: 14px;
+    line-height: 11px;
+    letter-spacing: -0.006em;
+    color: #FFFFFF;
+    padding: 40px 0px;
+    margin-left: 150px;
+    white-space: nowrap;
+    @media (max-width: $md4) {
+        margin-left: 50px;
+    }
+}

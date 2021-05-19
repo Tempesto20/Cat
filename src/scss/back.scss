@@ -1,0 +1,31 @@
+.back__top{
+
+}
+.arrow{
+}
+
+.back-to-top {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 304px;
+    right: 180px;
+    z-index: 999;
+
+    text-align: center;
+
+    background: #6EBBD3;
+    color: #FFFFFF;;
+    cursor: pointer;
+    display: none;
+    padding: 20px 20px;
+}
+  
+.back-to-top:hover {
+    background: #000000;
+}
+  
+.back-to-top__show {
+    display: block;
+}
+
