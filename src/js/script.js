@@ -9,7 +9,7 @@ window.onload = function () {
 		burger.classList.toggle('active');
 		nav.classList.toggle('active');
 	};
-
+//Tempesto20
 	// Кнопка наверх
 	function trackScroll() {
 		var scrolled = window.pageYOffset;
@@ -57,7 +57,7 @@ window.onload = function () {
 		
 		return false;
 	}
-
+//Tempesto20
 	// ------------------
 
 	// Плавные якоря
@@ -79,6 +79,7 @@ window.onload = function () {
 		})
 	}
 	// ---------------
+//Tempesto20
 
 	// Сортировка
 
@@ -126,7 +127,7 @@ window.onload = function () {
 			isFavorite: false
 		},
 	];
-
+//Tempesto20
 	const oldCats = [...cats]; // деструктуризация массива
 
 	let currentSort = '';
@@ -241,7 +242,7 @@ window.onload = function () {
 
 		// ---------------
 	}
-
+//Tempesto20
 	document.getElementById("sort_price").onchange = function(e) {
 		currentSort = e.target.value;
 		renderCats();
