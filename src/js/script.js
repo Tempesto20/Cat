@@ -65,7 +65,7 @@ window.onload = function () {
 
 	for (let anchor of anchors) {
 		anchor.addEventListener('click', function (e) {
-		e.preventDefault()
+			e.preventDefault()
 			
 			const blockID = anchor.getAttribute('href').substr(1);
 
@@ -87,31 +87,43 @@ window.onload = function () {
 			price: 30000,
 			img: 'img/30000.jpg',
 			discount: 40,
+			isSell: false,
+			isFavorite: false
 		},
 		{
 			price: 40000,
 			img: 'img/40000.jpg',
-			discount: 0
+			discount: 0,
+			isSell: true,
+			isFavorite: true
 		},
 		{
 			price: 20000,
 			img: 'img/20000.jpg',
 			discount: 0,
+			isSell: false,
+			isFavorite: false
 		},
 		{
 			price: 25000,
 			img: 'img/25000.jpg',
 			discount: 0,
+			isSell: false,
+			isFavorite: false
 		},
 		{
 			price: 30000,
 			img: 'img/30000-1.jpg',
-			discount: 40
+			discount: 40,
+			isSell: false,
+			isFavorite: false
 		},
 		{
 			price: 10000,
 			img: 'img/10000.jpg',
-			discount: 0
+			discount: 0,
+			isSell: true,
+			isFavorite: false
 		},
 	];
 
@@ -126,11 +138,15 @@ window.onload = function () {
 			cats = cats.sort(function(a, b) {
 				return a.price - b.price;
 			});
+
+			// cats = cats.sort((a, b) => a.price - b.price); // Упрощенный вид
 		}
 		else if (currentSort === 'expensive') {
 			cats = cats.sort(function(a, b) {
 				return b.price - a.price;
 			});
+
+			// cats = cats.sort((a, b) => b.price - a.price); // Упрощенный вид
 		}
 		else {
 			cats = [...oldCats]; // деструктуризация массива
@@ -147,12 +163,21 @@ window.onload = function () {
 			if (cats[i].discount !== 0) {
 				catsHTML += `<div class="card__discount">
 				<p class="discount">-${cats[i].discount}%</p>
-				</div>`
+				</div>`;
 			}
-	
-			catsHTML += `<div class="card__like">
-							<img src="img/svg/like2.svg" alt="">
-						</div>
+
+			if (cats[i].isFavorite) {
+				catsHTML += `<div class="card__like" data-like="${i}">
+				<img src="img/svg/like2.svg" alt="">
+				</div>`;
+			}
+			else {
+				catsHTML += `<div class="card__like" data-like="${i}">
+				<img src="img/svg/like.svg" alt="">
+				</div>`;
+			}
+
+			catsHTML += `
 					</div>
 					<div class="card__background">
 						<h2 class="card__title">Кот полосатый</h2>
@@ -183,16 +208,38 @@ window.onload = function () {
 						<h3 class="price__cat"> 
 							${cats[i].price} руб. 
 							</h3>
-					</div>
-					<div class="buy__cat">
-						<a href="#" class="byu__cat-1">Купить</a>
-					</div>
+					</div>`;
+
+					if (cats[i].isSell) {
+						catsHTML += `<div class="buy__cat sold">
+							<a href="#" class="byu__cat-1">Продан</a>
+						</div>`
+					}
+					else {
+						catsHTML += `<div class="buy__cat">
+							<a href="#" class="byu__cat-1">Купить</a>
+						</div>`
+					}
+
+
+				catsHTML += `</div>
 				</div>
-			</div>
 			`;
-	
+
 			document.getElementById('cat_cards').innerHTML = catsHTML;
 		}
+
+		// Избранное
+
+		document.querySelectorAll('.card__like').forEach(function(userItem) {
+			userItem.onclick = function() {
+				const target = userItem.getAttribute('data-like');
+				cats[target].isFavorite = cats[target].isFavorite ? false : true;
+				renderCats();
+			};
+		});
+
+		// ---------------
 	}
 
 	document.getElementById("sort_price").onchange = function(e) {
@@ -201,16 +248,6 @@ window.onload = function () {
 	}
 
 	renderCats();
-
-	// ---------------
-
-	// Избранное
-
-	document.querySelectorAll('.card__like').forEach(function(userItem) {
-		userItem.onclick = function() {
-			alert('Добавлено в избранное');
-		};
-	});
 
 	// ---------------
 };
