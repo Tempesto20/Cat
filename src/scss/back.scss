@@ -11,14 +11,27 @@
     bottom: 304px;
     right: 180px;
     z-index: 999;
-
     text-align: center;
-
     background: #6EBBD3;
     color: #FFFFFF;;
     cursor: pointer;
     display: none;
     padding: 20px 20px;
+    @media (max-width: $md2) {
+        bottom: 294px;
+        right: 20px;
+    }
+    @media (max-width: $md2) {
+        bottom: 394px;
+        right: 20px;
+    }
+    @media (max-width: $md3) {
+        width: 30px;
+        height: 30px;
+        bottom: 356px;
+        right: 20px;
+        padding: 10px 5px;
+    }
 }
   
 .back-to-top:hover {

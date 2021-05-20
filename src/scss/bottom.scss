@@ -76,6 +76,15 @@
         margin: 20px 0px 0px 20px;
     } 
 }
+
+#bottom__email-2.error {
+    border: 1px solid #ff0000;
+}
+
+#bottom__email-2.ok {
+    border: 1px solid #00ff00;
+}
+
 .bottom__email-text {
     font-weight: normal;
     font-size: 14px;
