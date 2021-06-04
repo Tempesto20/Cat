@@ -13,23 +13,32 @@
     }
 }
 .button__wrap {
-    margin-left: 500px;
-    @media (max-width: $md1) {
-        margin-left:  320px;
-    }
-    @media (max-width: $md2) {
-        margin-left:  20px;
-    }
+    display: block;
+justify-content: center;
 }
 .button__title {
+    display: block;
+    justify-content: center;
+    align-items: center;
     background: #fff;
     max-width: 380px;
     padding: 24px 129px;
     border-radius: 15px;
     border: 1px solid rgb(209, 207, 207);
+    margin-left: 450px;
+    @media (max-width: $md1) {
+        margin-left: 300px;
+    }
+    @media (max-width: $md2) {
+        margin-left: 200px;
+    }
+    @media (max-width: $md3) {
+        margin-left: 150px;
+    }
     @media (max-width: $md4) {
         max-width: 250px;
         padding: 24px 60px;
+        margin-left: 40px;
     }
     & a{
         text-decoration: none; 
